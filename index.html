@@ -4,6 +4,7 @@
 </head>
 <body>
 <input type="text" id="link" value="Insert Link..."></input>
+<input type="text" id="title" value="Insert Title..."></input>
 <button onclick="openGame()">Open Game</button>
 <script>
   function openGame() {
@@ -15,6 +16,7 @@
   iframe.style.border = "none";
   iframe.src = url
   win.document.body.appendChild(iframe)
+  win.document.title = str(document.getElementById("title").innerHTML);
 }
 </script>
 </body>
