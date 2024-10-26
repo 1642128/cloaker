@@ -5,18 +5,21 @@
 <body>
 <input id="link", type="text", value="Insert Link..."></input>
 <input id="title", type="text", value="Insert Title..."></input>
+<input type="file" id="myFile" name="filename">
 <button onclick="openGame()">Open Game</button>
 <script>
   function openGame() {
   var win = window.open()
-  var url = document.getElementById("link").value
+  var url = document.getElementById("link").value;
   var iframe = win.document.createElement('iframe')
   iframe.style.width = "100%";
   iframe.style.height = "100%";
   iframe.style.border = "none";
-  iframe.src = url
+  iframe.src = url;
   win.document.body.appendChild(iframe)
   win.document.title = document.getElementById("title").value;
+  win.document.head.link.type = "image/x-icon"
+  win.document.head.link.href = document.getElementById.value;
 }
 </script>
 </body>
