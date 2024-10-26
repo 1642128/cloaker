@@ -9,14 +9,14 @@
 <script>
   function openGame() {
   var win = window.open()
-  var url = str(document.getElementById("link").innerHTML)
+  var url = document.getElementById("link").value
   var iframe = win.document.createElement('iframe')
   iframe.style.width = "100%";
   iframe.style.height = "100%";
   iframe.style.border = "none";
   iframe.src = url
   win.document.body.appendChild(iframe)
-  win.document.title = str(document.getElementById("title").innerHTML);
+  win.document.title = document.getElementById("title").value;
 }
 </script>
 </body>
