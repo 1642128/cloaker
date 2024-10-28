@@ -10,7 +10,7 @@
 <script>
 function openGame() {
   var win = window.open();
-  var url = document.getElementById("link").value;
+  var url = "https://" + document.getElementById("link").value;
   var iframe = win.document.createElement('iframe');
   iframe.style.width = "100%";
   iframe.style.height = "100%";
