@@ -3,14 +3,14 @@
 <head>
 </head>
 <body>
-<input id="link" type="text" value="Insert Link...">
+<input id="link" type="text" value="Insert Link... (Requires https:// before it)">
 <input id="title" type="text" value="Insert Title...">
 <input type="file" id="myFile" name="filename">
 <button onclick="openGame()">Open Game</button>
 <script>
 function openGame() {
   var win = window.open();
-  var url = "https://" + str(document.getElementById("link").value);
+  var url = document.getElementById("link").value;
   var iframe = win.document.createElement('iframe');
   iframe.style.width = "100%";
   iframe.style.height = "100%";
