@@ -3,26 +3,34 @@
 <head>
 </head>
 <body>
-<input id="link", type="text", value="Insert Link..."></input>
-<input id="title", type="text", value="Insert Title..."></input>
-<input type="file", id="myFile", name="filename">
+<input id="link" type="text" value="Insert Link...">
+<input id="title" type="text" value="Insert Title...">
+<input type="file" id="myFile" name="filename">
 <button onclick="openGame()">Open Game</button>
 <script>
-  function openGame() {
-  var win = window.open()
+function openGame() {
+  var win = window.open();
   var url = document.getElementById("link").value;
-  var iframe = win.document.createElement('iframe')
+  var iframe = win.document.createElement('iframe');
   iframe.style.width = "100%";
   iframe.style.height = "100%";
   iframe.style.border = "none";
   iframe.src = url;
-  win.document.body.appendChild(iframe)
+  win.document.body.appendChild(iframe);
   win.document.title = document.getElementById("title").value;
-  link = win.document.createElement('link')
-  link.rel = icon
-  link.type = "image/x-icon"
-  link.href = document.getElementById("myFile").value;
-  win.document.head.appendChild(link)
+
+  var file = document.getElementById("myFile").files[0];
+  if (file) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var link = win.document.createElement('link');
+      link.rel = "icon";
+      link.type = "image/png";
+      link.href = e.target.result;
+      win.document.head.appendChild(link);
+    };
+    reader.readAsDataURL(file);
+  }
 }
 </script>
 </body>
