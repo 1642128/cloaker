@@ -16,6 +16,7 @@ function openGame() {
   }
   var insbutn = win.document.createElement(button)
   insbutn.onclick = "hi()"
+  insbutn.value = "inspect"
   win.document.script = "function hi() {     var script =  document.createElement('script');    script.src="//cdn.jsdelivr.net/npm/eruda";     document.body.appendChild(script);    script.onload = function () {         eruda.init()     } })();"
   var iframe = win.document.createElement('iframe');
   iframe.style.width = "100%";
