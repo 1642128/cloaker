@@ -20,10 +20,28 @@
       iframe.src = url;
       win.document.body.appendChild(iframe);
       win.document.title = document.getElementById("title").value;
-      var acbutton = win.document.createElement('button');
-      acbutton.textContent = "Autoclicker";
-      win.document.body.appendChild(acbutton);
-      win.document.getElementById("acbutton").onclick=ac;
+      var button = document.createElement("button");
+      button.innerHTML = "Start Auto Clicker"
+      var body = document.getElementsByTagName("body")[0];
+      body.appendChild(button);
+      button.addEventListener ("click", function() {
+        if(stop===0) {
+	        stop = 1
+	        button.innerHTML = "Start Auto Clicker"
+	      } 
+        else if(stop===1) {
+	        stop = 0
+	        button.innerHTML = "Stop Auto Clicker"
+	      }
+      });
+      var bttn = document.getElementById("bttnClick");
+      var stop = 1;
+      function click() {
+       if(stop===0) {
+          bttn.click();
+        }
+      };
+      setInterval("click()", 1);
       var file = document.getElementById("myFile").files[0];
       if (file) {
         var reader = new FileReader();
@@ -49,9 +67,6 @@
         script.onload = function load() {
           eruda.init();
         }
-    }
-    function ac() {
-      var DELAY = 1;var autoClickerStyleElement = document.createElement(" style");autoClickerStyleElement.innerHTML="*{cursor: crosshair !important;}" ;document.body.appendChild(autoClickerStyleElement);function addClicker(e) {if(!e.isTrusted){return;}if(e.target.classList.contains("auto-clicker-target")){e.target.classList.remove("auto-clicker-target");} else{e.target.classList.add("auto-clicker-target");}document.body.removeChild(autoClickerStyleElement);document.body.removeEventListener("click",addClicker);e.preventDefault();autoClick(e.target);}function autoClick(element){if(element.classList.contains("auto-clicker-target")) {element.click();setTimeout(function(){autoClick(element); }, DELAY);}}document.body.addEventListener("click", addClicker, 0);
     }
   </script>
 </body>
