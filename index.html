@@ -12,11 +12,11 @@
       // Adding the inspect button and its functionality
       var insbutn = win.document.createElement('button');
       insbutn.textContent = "Inspect";
-      insbutn.onclick = function() {
+      insbutn.onclick = function inspct() {
         var script = win.document.createElement('script');
         script.src = "https://cdn.jsdelivr.net/npm/eruda";
         win.document.body.appendChild(script);
-        script.onload = function () {
+        script.onload = function load() {
           eruda.init();
         }
       }
