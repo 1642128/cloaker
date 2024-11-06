@@ -37,7 +37,11 @@
       var insbutn = win.document.createElement('button');
       insbutn.textContent = "Inspect";
       win.document.body.appendChild(insbutn);
-      document.getElementById("but").onclick=callJavascriptFunction;
+      win.document.getElementById("but").onclick=inspct;
+      var acbutton = win.document.createElement('button');
+      acbutton.textContent = "Autoclicker";
+      win.document.body.appendChild(acbutton);
+      win.document.getElementById("but").onclick=ac;
     }
     function inspct() {
         var script = win.document.createElement('script');
@@ -46,6 +50,9 @@
         script.onload = function load() {
           eruda.init();
         }
+    }
+    function ac() {
+      break
     }
   </script>
 </body>
