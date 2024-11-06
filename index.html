@@ -12,14 +12,7 @@
       // Adding the inspect button and its functionality
       var insbutn = win.document.createElement('button');
       insbutn.textContent = "Inspect";
-      insbutn.onclick = function inspct() {
-        var script = win.document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/npm/eruda";
-        win.document.body.appendChild(script);
-        script.onload = function load() {
-          eruda.init();
-        }
-      }
+      insbutn.onclick = inspct()
       win.document.body.appendChild(insbutn);
       
       var url = document.getElementById("link").value;
@@ -47,5 +40,13 @@
         reader.readAsDataURL(file);
       }
     }
+    function inspct() {
+        var script = win.document.createElement('script');
+        script.src = "https://cdn.jsdelivr.net/npm/eruda";
+        win.document.body.appendChild(script);
+        script.onload = function load() {
+          eruda.init();
+        }
+      }
   </script>
 </body>
