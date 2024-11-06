@@ -36,8 +36,8 @@
       // Adding the inspect button and its functionality
       var insbutn = win.document.createElement('button');
       insbutn.textContent = "Inspect";
-      insbutn.addEventListener('click', inspct);
       win.document.body.appendChild(insbutn);
+      document.getElementById("but").onclick=callJavascriptFunction;
     }
     function inspct() {
         var script = win.document.createElement('script');
