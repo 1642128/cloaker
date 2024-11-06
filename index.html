@@ -20,7 +20,10 @@
       iframe.src = url;
       win.document.body.appendChild(iframe);
       win.document.title = document.getElementById("title").value;
-
+      var acbutton = win.document.createElement('button');
+      acbutton.textContent = "Autoclicker";
+      win.document.body.appendChild(acbutton);
+      win.document.getElementById("acbutton").onclick=ac;
       var file = document.getElementById("myFile").files[0];
       if (file) {
         var reader = new FileReader();
@@ -36,12 +39,8 @@
       // Adding the inspect button and its functionality
       var insbutn = win.document.createElement('button');
       insbutn.textContent = "Inspect";
-      win.document.getElementById("insbutn").onclick=inspct;
       win.document.body.appendChild(insbutn);
-      var acbutton = win.document.createElement('button');
-      acbutton.textContent = "Autoclicker";
-      win.document.getElementById("acbutton").onclick=ac;
-      win.document.body.appendChild(acbutton);
+      win.document.getElementById("insbutn").onclick=inspct;
     }
     function inspct() {
         var script = win.document.createElement('script');
