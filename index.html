@@ -37,7 +37,7 @@
       }
     }
     function eToggle() {
-        const activeIframe = document.querySelectorAll('iframe');
+        const activeIframe = document.querySelectorAll('iframe')[0];
         if (!activeIframe) {
           console.error("No active iframe found");
           return;
