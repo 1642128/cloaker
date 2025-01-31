@@ -7,15 +7,54 @@
   <input type="file" id="myFile" name="filename">
   <button onclick="openGame()">Open Game</button>
   <script>
+    function eToggle() {
+      const activeIframe = document.querySelector("#frame-container iframe.active");
+      if (!activeIframe) {
+        console.error("No active iframe found");
+        return;
+      }
+      const erudaWindow = activeIframe.contentWindow;
+      if (!erudaWindow) {
+        console.error("No content window found for the active iframe");
+        return;
+      }
+      if (erudaWindow.eruda) {
+        if (erudaWindow.eruda._isInit) {
+          erudaWindow.eruda.destroy();
+        } else {
+          console.error("Eruda is not initialized in the active iframe");
+        }
+      } else {
+        const erudaDocument = activeIframe.contentDocument;
+        if (!erudaDocument) {
+          console.error("No content document found for the active iframe");
+          return;
+        }
+        const script = erudaDocument.createElement("script");
+        script.src = "https://cdn.jsdelivr.net/npm/eruda";
+        script.onload = () => {
+          if (!erudaWindow.eruda) {
+            console.error("Failed to load Eruda in the active iframe");
+            return;
+          }
+          erudaWindow.eruda.init();
+          erudaWindow.eruda.show();
+        };
+        erudaDocument.head.appendChild(script);
+      }
+    }
     function openGame() {
       var win = window.open();
       var url = document.getElementById("link").value;
       if (!url.startsWith('http://') && !url.startsWith('https://')) {
         url = 'https://' + url;
       }
+      var inspectButton = win.document.createElement('button');
+      inspectButton.onclick = eToggle();
+      win.document.body.appendChild(iframe);
       var iframe = win.document.createElement('iframe');
       iframe.style.width = "100%";
-      iframe.style.height = "100%";
+      iframe.style.height = "100vh";
       iframe.style.border = "none";
       iframe.src = url;
       win.document.body.appendChild(iframe);
