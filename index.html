@@ -50,12 +50,12 @@
         url = 'https://' + url;
       }
       var inspectButton = win.document.createElement('button');
-      inspectButton.onclick = eToggle();
+      button1.setAttribute("onclick", "eToggle()");
+      button.innerHTML = "Inspect";
       win.document.body.appendChild(iframe);
       var iframe = win.document.createElement('iframe');
       iframe.style.width = "100%";
-      iframe.style.height = "100vh";
-      iframe.style.border = "none";
+      iframe.style.height = "100%";
       iframe.src = url;
       win.document.body.appendChild(iframe);
       win.document.title = document.getElementById("title").value;
