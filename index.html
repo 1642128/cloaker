@@ -17,6 +17,7 @@
       iframe.style.width = "100%";
       iframe.style.height = "100%";
       iframe.src = url;
+      iframe.id = "mainframe";
       win.document.body.appendChild(iframe);
       var inspectButton = win.document.createElement('button');
       inspectButton.setAttribute("onclick", eToggle);
@@ -37,7 +38,7 @@
       }
     }
     function eToggle() {
-      const activeIframe = document.querySelector("#frame-container iframe.active");
+      const activeIframe = document.getElementById('mainframe');
       if (!activeIframe) {
         console.error("No active iframe found");
         return;
