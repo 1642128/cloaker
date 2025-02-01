@@ -18,6 +18,7 @@
       iframe.style.height = "100%";
       iframe.src = url;
       iframe.id = "mainframe";
+      iframe.classList.add('active');
       win.document.body.appendChild(iframe);
       var inspectButton = win.document.createElement('button');
       inspectButton.setAttribute("click", eToggle);
