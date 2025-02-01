@@ -21,9 +21,10 @@
       iframe.classList.add('active');
       win.document.body.appendChild(iframe);
       var inspectButton = win.document.createElement('button');
-      inspectButton.setAttribute("click", eToggle);
       inspectButton.innerHTML = "Inspect";
+      inspectButton.id = 'insbuttn';
       win.document.body.appendChild(inspectButton);
+      document.getElementById('insbuttn').onclick = function() {eToggle();};
       win.document.title = document.getElementById("title").value;
       var file = document.getElementById("myFile").files[0];
       if (file) {
